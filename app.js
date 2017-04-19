@@ -33,7 +33,7 @@ function averageWordLength(text) {
     for (word in uniqueWords) {
         totalLength += word.length;
     }
-    return totalLength / uniqueWordCount(text);
+    return totalLength / uniqueWordCount(text).toFixed(2);
 }
 
 function analyzeText(){
@@ -42,9 +42,9 @@ function analyzeText(){
         //get words from text area
         var $text = $('textarea').val();
         $('dl').removeClass('hidden');
-        $('.js-word-count').after(totalWordCount($text));
-        $('.js-unique-word-count').after(uniqueWordCount($text));
-        $('.js-average-word').after(averageWordLength($text));
+        $('.js-word-count').text(totalWordCount($text));
+        $('.js-unique-word-count').text(uniqueWordCount($text));
+        $('.js-average-word').text(averageWordLength($text));
         $text.val('');
     });
 }
