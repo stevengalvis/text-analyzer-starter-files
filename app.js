@@ -5,27 +5,41 @@ function convertText(text){
 
 function totalWordCount(text) {
     var wordCount = convertText(text);
-    console.log(wordCount);
     return wordCount.length;
 }
 
-console.log(totalWordCount('this is just a test,(dkkd)###, i want 838484 to keep testing'));
-console.log(totalWordCount('lol'));
 
-function uniqueWordCount(text){
+function getUniqueWords(text){
     var checkCount = convertText(text);
-    var wordCount = {};
+    var uniqueWords = {};
     for(var i = 0;  i<checkCount.length; i++){
-        if (wordCount.hasOwnProperty([checkCount[i]])){
-            wordCount[checkCount[i]] += 1;
-
+        if (uniqueWords.hasOwnProperty([checkCount[i]])){
+            uniqueWords[checkCount[i]] += 1;
         }
         else {
-            wordCount[checkCount[i]] = 1;
-
+            uniqueWords[checkCount[i]] = 1;
         }
     }
-    return wordCount;
+    return uniqueWords;
+
 
 }
-console.log(uniqueWordCount('this is another test this this, this'));
+
+function uniqueWordCount(text){
+    var listOfWords = getUniqueWords(text);
+    return Object.keys(listOfWords).length;
+};
+
+function averageWordLength(text){
+    var uniqueWords = getUniqueWords(text)
+    var uniqueWordsArray = Object.keys(uniqueWords);
+    var totalLength = 0;
+    for(word in uniqueWords){
+        totalLength += word.length;
+    }
+    return totalLength / uniqueWordCount(text);
+
+}
+
+
+console.log(averageWordLength('this is another bleh lol test this this this'));
