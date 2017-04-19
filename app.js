@@ -45,7 +45,6 @@ function analyzeText(){
         $('.js-word-count').text(totalWordCount($text));
         $('.js-unique-word-count').text(uniqueWordCount($text));
         $('.js-average-word').text(averageWordLength($text));
-        $text.val('');
     });
 }
 
