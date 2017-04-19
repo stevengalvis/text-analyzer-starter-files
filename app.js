@@ -33,7 +33,7 @@ function averageWordLength(text) {
     for (word in uniqueWords) {
         totalLength += word.length;
     }
-    return totalLength / uniqueWordCount(text).toFixed(2);
+    return (totalLength / uniqueWordCount(text)).toFixed(2);
 }
 
 function analyzeText(){
